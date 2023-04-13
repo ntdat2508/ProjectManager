@@ -1,0 +1,88 @@
+﻿@inherits InternModalEditBase
+
+@if (@isLoading)
+{
+    <TemplatedLoadingPopup />
+}
+<RadzenTemplateForm TItem="Intern" Data="@editModel" Submit="@OnSubmit" InvalidSubmit="@OnInvalidSubmit">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Mã thực tập" /><span class="required"></span>
+                <RadzenTextBox Name="InternID" @bind-Value="@editModel.ID_Intern" />
+                <RadzenRequiredValidator Component="InternID" Text="Thông tin bắt buộc" />
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Tên nơi thực tập" /><span class="required"></span>
+                <RadzenTextBox Name="InternName" @bind-Value="@editModel.Name" />
+                <RadzenRequiredValidator Component="InternName" Text="Thông tin bắt buộc" />
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Tên người thực tập" />
+                <RadzenDropDown class="radzen-dropdown"
+                                AllowClear="true"
+                                TValue="long?"
+                                FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                FilterOperator="StringFilterOperator.Contains"
+                                AllowFiltering="true"
+                                Data="@listStudent"
+                                TextProperty="Name"
+                                ValueProperty="Id"
+                                Name="ListStudent"
+                                @bind-Value="@editModel.StudentId" />
+                <RadzenRequiredValidator Component="ListStudent" Text="Thông tin bắt buộc" />
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Giảng viên phụ trách" />
+                <RadzenDropDown class="radzen-dropdown"
+                                AllowClear="true"
+                                TValue="long?"
+                                FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                FilterOperator="StringFilterOperator.Contains"
+                                AllowFiltering="true"
+                                Data="@listTeacher"
+                                TextProperty="Name"
+                                ValueProperty="Id"
+                                Name="ListTeacher"
+                                @bind-Value="@editModel.TeacherId" />
+                <RadzenRequiredValidator Component="ListTeacher" Text="Thông tin bắt buộc" />
+
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Mô tả" /><span class="required"></span>
+                <RadzenTextBox Name="Mota" @bind-Value="@editModel.LinkDownload" />
+                <RadzenRequiredValidator Component="Mota" Text="Thông tin bắt buộc" />
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Điểm" /><span class="required"></span>
+                <RadzenTextBox Name="Point" @bind-Value="@editModel.Point" />
+                <RadzenRequiredValidator Component="Point" Text="Thông tin bắt buộc" />
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <RadzenButton class="btn btn-danger" Click="@Cancel">
+            <RadzenIcon Icon="close" class="material-icons-custom" />Đóng
+        </RadzenButton>
+        <RadzenButton type="submit" class="btn btn-primary">
+            <RadzenIcon Icon="save" class="material-icons-custom" />Lưu
+        </RadzenButton>
+    </div>
+</RadzenTemplateForm>

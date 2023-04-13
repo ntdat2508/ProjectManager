@@ -1,0 +1,131 @@
+﻿@page "/Classs/Index"
+@inherits IndexBase
+
+@if (@isLoading)
+{
+    <TemplatedLoading />
+}
+<div class="box-form">
+    <RadzenTemplateForm TItem="ClasssRequest" Data="@request" Submit="@OnSearch">
+        <div class="search-form">
+            <h3 class="box-title">Quản lý lớp</h3>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <RadzenLabel class="form-label" Text="Tên lớp" />
+                        <RadzenTextBox Placeholder="Tên lớp..." @bind-Value="@request.SearchText" />
+                    </div>
+                </div>
+                <div class="col-sm-3 padding-left-0">
+                    <div class="form-group">
+                        <RadzenLabel class="form-label" Text="Khoa" />
+                        <RadzenDropDown class="radzen-dropdown"
+                                        AllowClear="true"
+                                        TValue="long?"
+                                        FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                        FilterOperator="StringFilterOperator.Contains"
+                                        AllowFiltering="true"
+                                        Data="@listDepartment"
+                                        TextProperty="Name"
+                                        ValueProperty="Id"
+                                        Placeholder="--Tất cả--"
+                                        @bind-Value="@request.DepartmentId" />
+                    </div>
+                </div>
+                <div class="col-sm-3 padding-left-0">
+                    <div class="form-group">
+                        <RadzenLabel class="form-label" Text="Chuyên ngành" />
+                        <RadzenDropDown class="radzen-dropdown"
+                                        AllowClear="true"
+                                        TValue="long?"
+                                        FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                        FilterOperator="StringFilterOperator.Contains"
+                                        AllowFiltering="true"
+                                        Data="@listSpecialized"
+                                        TextProperty="Name"
+                                        ValueProperty="Id"
+                                        Placeholder="--Tất cả--"
+                                        @bind-Value="@request.SpecializedId" />
+                    </div>
+                </div>
+                <div class="col-sm-3 padding-left-0">
+                    <div class="form-group">
+                        <RadzenLabel class="form-label" Text="Niên khóa" />
+                        <RadzenDropDown class="radzen-dropdown"
+                                        AllowClear="true"
+                                        TValue="long?"
+                                        FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                        FilterOperator="StringFilterOperator.Contains"
+                                        AllowFiltering="true"
+                                        Data="@listSchoolYear"
+                                        TextProperty="Name"
+                                        ValueProperty="Id"
+                                        Placeholder="--Tất cả--"
+                                        @bind-Value="@request.SchoolYearId" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row-search-form">
+                        <RadzenButton type="submit" class="btn btn-success btn-search-form margin-right-10">
+                            <RadzenIcon Icon="search" class="material-icons-custom" />Tìm kiếm
+                        </RadzenButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </RadzenTemplateForm>
+    <div class="clearfix"></div>
+    <RadzenDataGrid class="radzen-data-grid table-form"
+                    ColumnWidth="300px"
+                    AllowFiltering="false"
+                    AllowColumnResize="true"
+                    FilterMode="FilterMode.Advanced"
+                    AllowPaging="true"
+                    AllowSorting="false"
+                    TItem="ClasssViewModel"
+                    LogicalFilterOperator="LogicalFilterOperator.Or"
+                    Count="@count"
+                    Data="@data"
+                    LoadData="@LoadData"
+                    PageSize="@pageSize"
+                    @ref="grid">
+        <Columns>
+            <RadzenDataGridColumn Width="120px" TItem="ClasssViewModel" Title="Thao tác" Frozen="true" TextAlign="TextAlign.Center">
+                <Template Context="data">
+                    <RadzenButton class="btn btn-grid-view-student" title="Xem danh sách sinh viên" Click="@(args => ShowModalViewStudent(data.Id))">
+                        <RadzenIcon Icon="visibility" class="material-icons-custom" />
+                    </RadzenButton>
+                </Template>
+                <FooterTemplate>
+                    Tổng số : <b> @count </b>
+                </FooterTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn Width="50px" TItem="ClasssViewModel" Property="STT" Title="STT" TextAlign="TextAlign.Center" />
+            <RadzenDataGridColumn Width="100px" TItem="ClasssViewModel" Property="Name" Title="Tên lớp" />
+            <RadzenDataGridColumn Width="100px" TItem="ClasssViewModel" Property="DepartmentName" Title="Khoa" />
+            <RadzenDataGridColumn Width="100px" TItem="ClasssViewModel" Property="SpecializedName" Title="Chuyên ngành" />
+            <RadzenDataGridColumn Width="200px" TItem="ClasssViewModel" Property="Id" Title="Thông tin">
+                <Template Context="data">
+                    <ul class="m-0 padding-left-20">
+                        <li>Sĩ số: @data.Number</li>
+                        <li>Niên khóa: @data.SchoolYearName</li>
+                    </ul>
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn Width="100px" TItem="ClasssViewModel" Property="CreatedBy" Title="Người tạo" />
+            <RadzenDataGridColumn Width="100px" TItem="ClasssViewModel" Property="CreatedDate" Title="Ngày tạo">
+                <Template Context="data">
+                    @(data.CreatedDate.ToString(Constants.DateFormat))
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn Width="100px" TItem="ClasssViewModel" Property="ModifiedBy" Title="Người sửa" />
+            <RadzenDataGridColumn Width="100px" TItem="ClasssViewModel" Property="ModifiedDate" Title="Ngày sửa">
+                <Template Context="data">
+                    @(data.ModifiedDate?.ToString(Constants.DateFormat))
+                </Template>
+            </RadzenDataGridColumn>
+        </Columns>
+    </RadzenDataGrid>
+</div>

@@ -1,0 +1,956 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+html, body {
+    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px;
+}
+
+a, .btn-link {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+app {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-row {
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.main {
+    flex: 1;
+}
+
+    .main .top-row {
+        background-color: #ffffff;
+        border-bottom: 1px solid #d6d5d5;
+        justify-content: flex-end;
+        z-index: 3;
+    }
+
+        .main .top-row > a, .main .top-row .btn-link {
+            white-space: nowrap;
+            margin-left: 1.5rem;
+        }
+
+        .main .top-row a:first-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+.sidebar {
+    background-image: none;
+    background-color: #343a40;
+}
+
+    .sidebar .top-row {
+        background-color: #343a40;
+        border-bottom: 1px solid #4b545c;
+    }
+
+    .sidebar .navbar-brand {
+        font-size: 30px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar .oi {
+        width: 2rem;
+        font-size: 1.1rem;
+        vertical-align: text-top;
+        top: -2px;
+    }
+
+    .sidebar .nav-item {
+        font-size: 0.9rem;
+        padding-bottom: 0.5rem;
+    }
+
+        .sidebar .nav-item:first-of-type {
+            padding-top: 1rem;
+        }
+
+        .sidebar .nav-item:last-of-type {
+            padding-bottom: 1rem;
+        }
+
+        .sidebar .nav-item a {
+            color: #d7d7d7;
+            border-radius: 4px;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            line-height: 3rem;
+        }
+
+            .sidebar .nav-item a.active {
+                background-color: rgba(255,255,255,0.25);
+                color: white;
+            }
+
+            .sidebar .nav-item a:hover {
+                background-color: rgba(255,255,255,0.1);
+                color: white;
+            }
+
+.content {
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
+}
+
+.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/*.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}*/
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+    #blazor-error-ui .dismiss {
+        cursor: pointer;
+        position: absolute;
+        right: 0.75rem;
+        top: 0.5rem;
+    }
+
+@media (max-width: 767.98px) {
+    .main .top-row:not(.auth) {
+        display: none;
+    }
+
+    .main .top-row.auth {
+        justify-content: space-between;
+    }
+
+    .main .top-row a, .main .top-row .btn-link {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    app {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .main .top-row {
+        position: sticky;
+        top: 0;
+    }
+
+    .main > div {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    .navbar-toggler {
+        display: none;
+    }
+
+    .sidebar .collapse {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+}
+
+
+/*--------------------*/
+.nav-item .material-icons {
+    padding-right: 5px;
+    font-size: 18px !important;
+    padding-bottom: 5px;
+}
+
+.main {
+    background-color: #ecf0f5;
+}
+
+.box-form {
+    background: #ffffff;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+}
+
+.search-form {
+    border-radius: 3px;
+    padding: 15px 15px 0 15px;
+}
+
+.box-title {
+    font-size: 18px !important;
+}
+
+.form-group {
+    margin-bottom: 15px !important;
+}
+
+.form-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control:focus {
+    border-color: #3c8dbc;
+    box-shadow: none;
+}
+
+.form-control {
+    height: 34px;
+    padding: 6px 10px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border: 1px solid #ccc;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.btn-add-form, .btn-danger, .btn-primary {
+    width: 110px;
+    height: 30px;
+    padding: 0;
+}
+
+.btn-search-form {
+    width: 110px;
+    height: 30px;
+    padding: 0;
+}
+
+.margin-right-20 {
+    margin-right: 20px;
+}
+
+.margin-left-5 {
+    margin-left: 5px;
+}
+
+.margin-right-5 {
+    margin-right: 5px;
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+.margin-right-10 {
+    margin-right: 10px;
+}
+
+.margin-top-7 {
+    margin-top: 7px;
+}
+
+.btn-success:focus {
+    box-shadow: none !important;
+}
+
+.material-icons-custom {
+    vertical-align: middle;
+    padding-bottom: 2px;
+    font-size: 18px !important;
+}
+
+.blazored-modal-container {
+    margin: 30px auto !important;
+    height: auto !important;
+}
+
+.blazored-modal {
+    width: 600px;
+    padding: 15px !important;
+}
+
+.blazored-modal-title {
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+.blazored-modal-header {
+    padding: 0 !important;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.blazored-modal-content {
+    padding: 15px 0 0 0;
+}
+
+.application-external-popup {
+    max-height: 730px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-right: -15px;
+}
+
+.modal-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(243, 245, 247, 0.56);
+    border-top: none !important;
+}
+
+.blazored-modal-close {
+    font-size: 21px !important;
+    opacity: .2;
+    padding: 5px 0 0 0 !important;
+    margin: -10px 0 5px 0 !important;
+}
+
+    .blazored-modal-close:focus {
+        outline: none;
+    }
+
+    .blazored-modal-close:hover {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        opacity: .5;
+    }
+
+.form-control-select {
+    padding: 0 0 0 5px;
+}
+
+.radzen-dropdown, .rz-spinner, .radzen-date-picker, .rz-textbox {
+    width: 100% !important;
+}
+
+.rz-button.btn-success, .btn-success.rz-paginator-element {
+    background-color: #28a745 !important;
+}
+
+.rz-button-md, .rz-date-filter-buttons .rz-button, .rz-date-filter-buttons .rz-paginator-element, .rz-fileupload-choose, .rz-selectbutton .rz-button, .rz-selectbutton .rz-paginator-element, .rz-splitbutton-menubutton, .rz-splitbutton .rz-button-text-icon-left, .rz-splitbutton .rz-button-text-only {
+    padding: 0 !important;
+}
+
+.btn-success:hover {
+    border-color: #1e7e34 !important;
+    box-shadow: none !important;
+}
+
+.margin-top-4 {
+    margin-top: 4px;
+}
+
+.table-form {
+    padding: 0 15px 15px 15px;
+}
+
+.lds-hourglass {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff80;
+}
+
+    .lds-hourglass:after {
+        content: " ";
+        display: block;
+        border-radius: 50%;
+        border: 15px solid #28a745;
+        border-color: #28a745 transparent #28a745 transparent;
+        animation: lds-hourglass 1.2s infinite;
+    }
+
+@keyframes lds-hourglass {
+    0% {
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+
+    50% {
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    100% {
+        transform: rotate(1800deg);
+    }
+}
+
+.btn-primary {
+    background-color: #1b6ec2 !important;
+}
+
+.btn-danger {
+    background-color: #dc3545 !important;
+}
+
+    .btn-danger:focus, .btn-primary:focus {
+        box-shadow: none !important;
+    }
+
+    .btn-danger:hover, .btn-primary:hover {
+        box-shadow: none !important;
+    }
+
+.lds-hourglass-popup {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    margin-left: -16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff80;
+    z-index: 2;
+}
+
+    .lds-hourglass-popup:after {
+        content: " ";
+        display: block;
+        border-radius: 50%;
+        border: 15px solid #28a745;
+        border-color: #28a745 transparent #28a745 transparent;
+        animation: lds-hourglass-popup 1.2s infinite;
+    }
+
+@keyframes lds-hourglass-popup {
+    0% {
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+
+    50% {
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    100% {
+        transform: rotate(1800deg);
+    }
+}
+
+.btn-grid-edit {
+    width: 25px;
+    background-color: #28a745 !important;
+    height: 25px !important;
+}
+
+.btn-grid-delete {
+    width: 25px;
+    background-color: #dc3545 !important;
+    height: 25px !important;
+}
+
+.btn-grid-view-student {
+    width: 25px;
+    background-color: #28a745 !important;
+    height: 25px !important;
+}
+
+/*.radzen-data-grid {
+    width: calc(100vw - 300px);
+}*/
+
+input:focus-visible, textarea:focus-visible {
+    border: 1px solid #40a9ff !important;
+    outline: aliceblue;
+}
+
+.invalid {
+    border: 1px solid red !important;
+    outline: aliceblue;
+}
+
+.rz-message-popup {
+    position: fixed !important;
+}
+
+.rz-cell-data .rz-switch {
+    margin-right: 5px;
+    padding-top: 11px;
+    height: 16px !important;
+    width: 30px !important;
+}
+
+    .rz-cell-data .rz-switch .rz-switch-circle:before {
+        width: 10px !important;
+        height: 10px !important;
+        margin-top: -5px !important;
+    }
+
+.rz-switch.rz-switch-checked .rz-switch-circle:before {
+    transform: translateX(13px) !important;
+}
+
+.btn-change-status-success {
+    color: #fff;
+    height: 25px;
+    padding: 3px 0 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #00a65a;
+    border-color: #008d4c;
+    width: 140px;
+}
+
+    .btn-change-status-success .rz-switch .rz-switch-circle:before {
+        background: #00a65a;
+    }
+
+    .btn-change-status-success .rz-switch-circle.rz-disabled {
+        background: #fff !important;
+    }
+
+.btn-change-status-warning {
+    color: #fff;
+    height: 25px;
+    padding: 3px 0 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f39c12;
+    border-color: #e08e0b;
+    width: 140px;
+}
+
+    .btn-change-status-warning .rz-switch .rz-switch-circle:before {
+        background: #f39c12;
+    }
+
+    .btn-change-status-warning .rz-switch-circle.rz-disabled {
+        background: #fff !important;
+    }
+
+/* css menu*/
+.nav-menu-custom .rz-card {
+    padding: 0;
+}
+
+.nav-menu-custom .card {
+    border: none;
+    margin-top: 20px !important;
+}
+
+.nav-menu-custom .rz-panel-menu .rz-navigation-menu .rz-navigation-item-wrapper {
+    padding: 0;
+    line-height: 3rem;
+    height: 3rem;
+}
+
+.nav-menu-custom .rz-panel-menu .rz-navigation-item-wrapper-active:before {
+    width: 5px;
+    background-color: #479cc8;
+}
+
+.rz-textarea {
+    width: 100%;
+}
+
+.row-search-form {
+    text-align: center;
+    margin: 5px 0 20px 0;
+}
+
+.term-box-title-left {
+    float: left;
+    padding-left: 0;
+}
+
+.term-box-title-right {
+    float: right;
+    padding: 0 0 15px 0;
+}
+
+.float-right {
+    float: right;
+}
+
+.term-name-search-textbox {
+    width: 65% !important;
+}
+
+.nav-link-logout {
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0;
+}
+
+    .nav-link-logout:hover {
+        color: rgba(0, 0, 0, 0.7);
+    }
+
+.image-logo {
+    width: auto;
+    max-height: 34px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.image {
+    color: #fff;
+    padding: 10px 0 10px 15px;
+    display: inline-block;
+}
+
+.material-icons-user {
+    font-size: 45px !important;
+}
+
+.info {
+    color: #fff;
+    display: inline-block;
+}
+
+    .info a {
+        color: #fff;
+    }
+
+.login-display {
+    border-bottom: 1px solid #4b545c;
+}
+
+.padding-left-0 {
+    padding-left: 0 !important;
+}
+
+.rz-notification {
+    z-index: 9999 !important;
+    top: 15px !important;
+    word-wrap: break-word !important;
+}
+
+.rz-growl-message p {
+    width: 100%;
+}
+
+.rz-growl-message-error .rz-growl-item {
+    background-color: #dc3545 !important;
+}
+
+.rz-growl-message-success .rz-growl-item {
+    background-color: #28a745 !important;
+}
+
+.required {
+    color: red;
+}
+
+.rz-messages-error {
+    color: red !important;
+    font-size: 12px !important;
+}
+
+.active-hide-button-close > .rz-dropdown-clear-icon {
+    display: none;
+}
+
+.rz-spinner.rz-state-disabled, .rz-calendar.rz-state-disabled .rz-inputtext, .rz-listbox.rz-state-disabled, .rz-autocomplete-input:disabled, .rz-state-disabled.rz-multiselect, .rz-state-disabled.rz-dropdown, .rz-radiobutton-box.rz-state-disabled, .rz-chkbox-box.rz-state-disabled, .rz-colorpicker:disabled, .rz-lookup-search input:disabled, .rz-spinner:disabled, .rz-calendar .rz-inputtext:disabled, .rz-multiselect:disabled, .rz-dropdown:disabled, .mask:disabled, .rz-textarea:disabled, .rz-textbox:disabled {
+    color: #555 !important;
+    background-color: #eee !important;
+    border: 1px solid #ccc !important;
+    cursor: no-drop;
+}
+
+    .rz-spinner.rz-state-disabled .rz-inputtext {
+        color: #555 !important;
+        background-color: #eee !important;
+        cursor: no-drop;
+    }
+
+
+.blazored-modal-overlay {
+    pointer-events: none;
+}
+
+.components-reconnect-modal {
+    z-index: 9999 !important;
+}
+
+.padding-left-20 {
+    padding-left: 20px;
+}
+
+.rz-button-md .rzi, .rz-button-md .rz-column-drag, .rz-button-md .rz-datatable-loading-content .rzi-circle-o-notch, .rz-datatable-loading-content .rz-button-md .rzi-circle-o-notch, .rz-date-filter-buttons .rz-button .rzi, .rz-date-filter-buttons .rz-paginator-element .rzi, .rz-date-filter-buttons .rz-button .rz-column-drag, .rz-date-filter-buttons .rz-paginator-element .rz-column-drag, .rz-date-filter-buttons .rz-button .rz-datatable-loading-content .rzi-circle-o-notch, .rz-date-filter-buttons .rz-paginator-element .rz-datatable-loading-content .rzi-circle-o-notch, .rz-datatable-loading-content .rz-date-filter-buttons .rz-button .rzi-circle-o-notch, .rz-datatable-loading-content .rz-date-filter-buttons .rz-paginator-element .rzi-circle-o-notch, .rz-button-md .rz-datatable-header .rzi-plus, .rz-date-filter-buttons .rz-button .rz-datatable-header .rzi-plus, .rz-date-filter-buttons .rz-paginator-element .rz-datatable-header .rzi-plus, .rz-datatable-header .rz-button-md .rzi-plus, .rz-datatable-header .rz-date-filter-buttons .rz-button .rzi-plus, .rz-datatable-header .rz-date-filter-buttons .rz-paginator-element .rzi-plus, .rz-date-filter-buttons .rz-datatable-header .rz-button .rzi-plus, .rz-date-filter-buttons .rz-datatable-header .rz-paginator-element .rzi-plus, .rz-button-md .rz-sortable-column .rzi-grid-sort, .rz-date-filter-buttons .rz-button .rz-sortable-column .rzi-grid-sort, .rz-date-filter-buttons .rz-paginator-element .rz-sortable-column .rzi-grid-sort, .rz-sortable-column .rz-button-md .rzi-grid-sort, .rz-sortable-column .rz-date-filter-buttons .rz-button .rzi-grid-sort, .rz-sortable-column .rz-date-filter-buttons .rz-paginator-element .rzi-grid-sort, .rz-date-filter-buttons .rz-sortable-column .rz-button .rzi-grid-sort, .rz-date-filter-buttons .rz-sortable-column .rz-paginator-element .rzi-grid-sort, .rz-button-md .rz-datatable .rzi-chevron-circle-down, .rz-date-filter-buttons .rz-button .rz-datatable .rzi-chevron-circle-down, .rz-date-filter-buttons .rz-paginator-element .rz-datatable .rzi-chevron-circle-down, .rz-datatable .rz-button-md .rzi-chevron-circle-down, .rz-datatable .rz-date-filter-buttons .rz-button .rzi-chevron-circle-down, .rz-datatable .rz-date-filter-buttons .rz-paginator-element .rzi-chevron-circle-down, .rz-date-filter-buttons .rz-datatable .rz-button .rzi-chevron-circle-down, .rz-date-filter-buttons .rz-datatable .rz-paginator-element .rzi-chevron-circle-down, .rz-button-md .rz-datatable .rzi-chevron-circle-right, .rz-date-filter-buttons .rz-button .rz-datatable .rzi-chevron-circle-right, .rz-date-filter-buttons .rz-paginator-element .rz-datatable .rzi-chevron-circle-right, .rz-datatable .rz-button-md .rzi-chevron-circle-right, .rz-datatable .rz-date-filter-buttons .rz-button .rzi-chevron-circle-right, .rz-datatable .rz-date-filter-buttons .rz-paginator-element .rzi-chevron-circle-right, .rz-date-filter-buttons .rz-datatable .rz-button .rzi-chevron-circle-right, .rz-date-filter-buttons .rz-datatable .rz-paginator-element .rzi-chevron-circle-right, .rz-button-md .rz-fileupload-row .rz-button .rzi-close, .rz-button-md .rz-fileupload-row .rz-paginator-element .rzi-close, .rz-date-filter-buttons .rz-button .rz-fileupload-row .rz-button .rzi-close, .rz-date-filter-buttons .rz-paginator-element .rz-fileupload-row .rz-button .rzi-close, .rz-date-filter-buttons .rz-button .rz-fileupload-row .rz-paginator-element .rzi-close, .rz-date-filter-buttons .rz-paginator-element .rz-fileupload-row .rz-paginator-element .rzi-close, .rz-fileupload-row .rz-button .rz-button-md .rzi-close, .rz-fileupload-row .rz-paginator-element .rz-button-md .rzi-close, .rz-fileupload-row .rz-button .rz-date-filter-buttons .rz-button .rzi-close, .rz-fileupload-row .rz-paginator-element .rz-date-filter-buttons .rz-button .rzi-close, .rz-fileupload-row .rz-button .rz-date-filter-buttons .rz-paginator-element .rzi-close, .rz-fileupload-row .rz-paginator-element .rz-date-filter-buttons .rz-paginator-element .rzi-close, .rz-date-filter-buttons .rz-fileupload-row .rz-button .rz-button .rzi-close, .rz-date-filter-buttons .rz-fileupload-row .rz-paginator-element .rz-button .rzi-close, .rz-date-filter-buttons .rz-fileupload-row .rz-button .rz-paginator-element .rzi-close, .rz-date-filter-buttons .rz-fileupload-row .rz-paginator-element .rz-paginator-element .rzi-close, .rz-button-md .rz-fileupload-row .rz-button .rzi-times, .rz-button-md .rz-fileupload-row .rz-paginator-element .rzi-times, .rz-date-filter-buttons .rz-button .rz-fileupload-row .rz-button .rzi-times, .rz-date-filter-buttons .rz-paginator-element .rz-fileupload-row .rz-button .rzi-times, .rz-date-filter-buttons .rz-button .rz-fileupload-row .rz-paginator-element .rzi-times, .rz-date-filter-buttons .rz-paginator-element .rz-fileupload-row .rz-paginator-element .rzi-times, .rz-fileupload-row .rz-button .rz-button-md .rzi-times, .rz-fileupload-row .rz-paginator-element .rz-button-md .rzi-times, .rz-fileupload-row .rz-button .rz-date-filter-buttons .rz-button .rzi-times, .rz-fileupload-row .rz-paginator-element .rz-date-filter-buttons .rz-button .rzi-times, .rz-fileupload-row .rz-button .rz-date-filter-buttons .rz-paginator-element .rzi-times, .rz-fileupload-row .rz-paginator-element .rz-date-filter-buttons .rz-paginator-element .rzi-times, .rz-date-filter-buttons .rz-fileupload-row .rz-button .rz-button .rzi-times, .rz-date-filter-buttons .rz-fileupload-row .rz-paginator-element .rz-button .rzi-times, .rz-date-filter-buttons .rz-fileupload-row .rz-button .rz-paginator-element .rzi-times, .rz-date-filter-buttons .rz-fileupload-row .rz-paginator-element .rz-paginator-element .rzi-times, .rz-button-md .rz-fileupload-row .rz-button .rz-icon-trash, .rz-button-md .rz-fileupload-row .rz-paginator-element .rz-icon-trash, .rz-date-filter-buttons .rz-button .rz-fileupload-row .rz-button .rz-icon-trash, .rz-date-filter-buttons .rz-paginator-element .rz-fileupload-row .rz-button .rz-icon-trash, .rz-date-filter-buttons .rz-button .rz-fileupload-row .rz-paginator-element .rz-icon-trash, .rz-date-filter-buttons .rz-paginator-element .rz-fileupload-row .rz-paginator-element .rz-icon-trash, .rz-fileupload-row .rz-button .rz-button-md .rz-icon-trash, .rz-fileupload-row .rz-paginator-element .rz-button-md .rz-icon-trash, .rz-fileupload-row .rz-button .rz-date-filter-buttons .rz-button .rz-icon-trash, .rz-fileupload-row .rz-paginator-element .rz-date-filter-buttons .rz-button .rz-icon-trash, .rz-fileupload-row .rz-button .rz-date-filter-buttons .rz-paginator-element .rz-icon-trash, .rz-fileupload-row .rz-paginator-element .rz-date-filter-buttons .rz-paginator-element .rz-icon-trash, .rz-date-filter-buttons .rz-fileupload-row .rz-button .rz-button .rz-icon-trash, .rz-date-filter-buttons .rz-fileupload-row .rz-paginator-element .rz-button .rz-icon-trash, .rz-date-filter-buttons .rz-fileupload-row .rz-button .rz-paginator-element .rz-icon-trash, .rz-date-filter-buttons .rz-fileupload-row .rz-paginator-element .rz-paginator-element .rz-icon-trash, .rz-fileupload-choose .rzi, .rz-fileupload-choose .rz-column-drag, .rz-fileupload-choose .rz-datatable-loading-content .rzi-circle-o-notch, .rz-datatable-loading-content .rz-fileupload-choose .rzi-circle-o-notch, .rz-fileupload-choose .rz-datatable-header .rzi-plus, .rz-datatable-header .rz-fileupload-choose .rzi-plus, .rz-fileupload-choose .rz-sortable-column .rzi-grid-sort, .rz-sortable-column .rz-fileupload-choose .rzi-grid-sort, .rz-fileupload-choose .rz-datatable .rzi-chevron-circle-down, .rz-datatable .rz-fileupload-choose .rzi-chevron-circle-down, .rz-fileupload-choose .rz-datatable .rzi-chevron-circle-right, .rz-datatable .rz-fileupload-choose .rzi-chevron-circle-right, .rz-fileupload-choose .rz-fileupload-row .rz-button .rzi-close, .rz-fileupload-choose .rz-fileupload-row .rz-paginator-element .rzi-close, .rz-fileupload-row .rz-button .rz-fileupload-choose .rzi-close, .rz-fileupload-row .rz-paginator-element .rz-fileupload-choose .rzi-close, .rz-fileupload-choose .rz-fileupload-row .rz-button .rzi-times, .rz-fileupload-choose .rz-fileupload-row .rz-paginator-element .rzi-times, .rz-fileupload-row .rz-button .rz-fileupload-choose .rzi-times, .rz-fileupload-row .rz-paginator-element .rz-fileupload-choose .rzi-times, .rz-fileupload-choose .rz-fileupload-row .rz-button .rz-icon-trash, .rz-fileupload-choose .rz-fileupload-row .rz-paginator-element .rz-icon-trash, .rz-fileupload-row .rz-button .rz-fileupload-choose .rz-icon-trash, .rz-fileupload-row .rz-paginator-element .rz-fileupload-choose .rz-icon-trash, .rz-selectbutton .rz-button .rzi, .rz-selectbutton .rz-paginator-element .rzi, .rz-selectbutton .rz-button .rz-column-drag, .rz-selectbutton .rz-paginator-element .rz-column-drag, .rz-selectbutton .rz-button .rz-datatable-loading-content .rzi-circle-o-notch, .rz-selectbutton .rz-paginator-element .rz-datatable-loading-content .rzi-circle-o-notch, .rz-datatable-loading-content .rz-selectbutton .rz-button .rzi-circle-o-notch, .rz-datatable-loading-content .rz-selectbutton .rz-paginator-element .rzi-circle-o-notch, .rz-selectbutton .rz-button .rz-datatable-header .rzi-plus, .rz-selectbutton .rz-paginator-element .rz-datatable-header .rzi-plus, .rz-datatable-header .rz-selectbutton .rz-button .rzi-plus, .rz-datatable-header .rz-selectbutton .rz-paginator-element .rzi-plus, .rz-selectbutton .rz-button .rz-sortable-column .rzi-grid-sort, .rz-selectbutton .rz-paginator-element .rz-sortable-column .rzi-grid-sort, .rz-sortable-column .rz-selectbutton .rz-button .rzi-grid-sort, .rz-sortable-column .rz-selectbutton .rz-paginator-element .rzi-grid-sort, .rz-selectbutton .rz-button .rz-datatable .rzi-chevron-circle-down, .rz-selectbutton .rz-paginator-element .rz-datatable .rzi-chevron-circle-down, .rz-datatable .rz-selectbutton .rz-button .rzi-chevron-circle-down, .rz-datatable .rz-selectbutton .rz-paginator-element .rzi-chevron-circle-down, .rz-selectbutton .rz-button .rz-datatable .rzi-chevron-circle-right, .rz-selectbutton .rz-paginator-element .rz-datatable .rzi-chevron-circle-right, .rz-datatable .rz-selectbutton .rz-button .rzi-chevron-circle-right, .rz-datatable .rz-selectbutton .rz-paginator-element .rzi-chevron-circle-right, .rz-selectbutton .rz-fileupload-row .rz-button .rzi-close, .rz-selectbutton .rz-fileupload-row .rz-paginator-element .rzi-close, .rz-fileupload-row .rz-selectbutton .rz-button .rzi-close, .rz-fileupload-row .rz-selectbutton .rz-paginator-element .rzi-close, .rz-selectbutton .rz-fileupload-row .rz-button .rzi-times, .rz-selectbutton .rz-fileupload-row .rz-paginator-element .rzi-times, .rz-fileupload-row .rz-selectbutton .rz-button .rzi-times, .rz-fileupload-row .rz-selectbutton .rz-paginator-element .rzi-times, .rz-selectbutton .rz-fileupload-row .rz-button .rz-icon-trash, .rz-selectbutton .rz-fileupload-row .rz-paginator-element .rz-icon-trash, .rz-fileupload-row .rz-selectbutton .rz-button .rz-icon-trash, .rz-fileupload-row .rz-selectbutton .rz-paginator-element .rz-icon-trash, .rz-splitbutton-menubutton .rzi, .rz-splitbutton-menubutton .rz-column-drag, .rz-splitbutton-menubutton .rz-datatable-loading-content .rzi-circle-o-notch, .rz-datatable-loading-content .rz-splitbutton-menubutton .rzi-circle-o-notch, .rz-splitbutton-menubutton .rz-datatable-header .rzi-plus, .rz-datatable-header .rz-splitbutton-menubutton .rzi-plus, .rz-splitbutton-menubutton .rz-sortable-column .rzi-grid-sort, .rz-sortable-column .rz-splitbutton-menubutton .rzi-grid-sort, .rz-splitbutton-menubutton .rz-datatable .rzi-chevron-circle-down, .rz-datatable .rz-splitbutton-menubutton .rzi-chevron-circle-down, .rz-splitbutton-menubutton .rz-datatable .rzi-chevron-circle-right, .rz-datatable .rz-splitbutton-menubutton .rzi-chevron-circle-right, .rz-splitbutton-menubutton .rz-fileupload-row .rz-button .rzi-close, .rz-splitbutton-menubutton .rz-fileupload-row .rz-paginator-element .rzi-close, .rz-fileupload-row .rz-button .rz-splitbutton-menubutton .rzi-close, .rz-fileupload-row .rz-paginator-element .rz-splitbutton-menubutton .rzi-close, .rz-splitbutton-menubutton .rz-fileupload-row .rz-button .rzi-times, .rz-splitbutton-menubutton .rz-fileupload-row .rz-paginator-element .rzi-times, .rz-fileupload-row .rz-button .rz-splitbutton-menubutton .rzi-times, .rz-fileupload-row .rz-paginator-element .rz-splitbutton-menubutton .rzi-times, .rz-splitbutton-menubutton .rz-fileupload-row .rz-button .rz-icon-trash, .rz-splitbutton-menubutton .rz-fileupload-row .rz-paginator-element .rz-icon-trash, .rz-fileupload-row .rz-button .rz-splitbutton-menubutton .rz-icon-trash, .rz-fileupload-row .rz-paginator-element .rz-splitbutton-menubutton .rz-icon-trash, .rz-button-md .rz-menuitem .rz-menuitem-icon, .rz-date-filter-buttons .rz-button .rz-menuitem .rz-menuitem-icon, .rz-date-filter-buttons .rz-paginator-element .rz-menuitem .rz-menuitem-icon, .rz-fileupload-choose .rz-menuitem .rz-menuitem-icon, .rz-selectbutton .rz-button .rz-menuitem .rz-menuitem-icon, .rz-selectbutton .rz-paginator-element .rz-menuitem .rz-menuitem-icon, .rz-splitbutton-menubutton .rz-menuitem .rz-menuitem-icon, .rz-menuitem .rz-button-md .rz-menuitem-icon, .rz-menuitem .rz-date-filter-buttons .rz-button .rz-menuitem-icon, .rz-menuitem .rz-date-filter-buttons .rz-paginator-element .rz-menuitem-icon, .rz-date-filter-buttons .rz-menuitem .rz-button .rz-menuitem-icon, .rz-date-filter-buttons .rz-menuitem .rz-paginator-element .rz-menuitem-icon, .rz-menuitem .rz-fileupload-choose .rz-menuitem-icon, .rz-menuitem .rz-selectbutton .rz-button .rz-menuitem-icon, .rz-menuitem .rz-selectbutton .rz-paginator-element .rz-menuitem-icon, .rz-selectbutton .rz-menuitem .rz-button .rz-menuitem-icon, .rz-selectbutton .rz-menuitem .rz-paginator-element .rz-menuitem-icon, .rz-menuitem .rz-splitbutton-menubutton .rz-menuitem-icon, .rz-splitbutton .rz-button-text-icon-left .rzi, .rz-splitbutton .rz-button-text-icon-left .rz-column-drag, .rz-splitbutton .rz-button-text-icon-left .rz-datatable-loading-content .rzi-circle-o-notch, .rz-datatable-loading-content .rz-splitbutton .rz-button-text-icon-left .rzi-circle-o-notch, .rz-splitbutton .rz-button-text-icon-left .rz-datatable-header .rzi-plus, .rz-datatable-header .rz-splitbutton .rz-button-text-icon-left .rzi-plus, .rz-splitbutton .rz-button-text-icon-left .rz-sortable-column .rzi-grid-sort, .rz-sortable-column .rz-splitbutton .rz-button-text-icon-left .rzi-grid-sort, .rz-splitbutton .rz-button-text-icon-left .rz-datatable .rzi-chevron-circle-down, .rz-datatable .rz-splitbutton .rz-button-text-icon-left .rzi-chevron-circle-down, .rz-splitbutton .rz-button-text-icon-left .rz-datatable .rzi-chevron-circle-right, .rz-datatable .rz-splitbutton .rz-button-text-icon-left .rzi-chevron-circle-right, .rz-splitbutton .rz-button-text-icon-left .rz-fileupload-row .rz-button .rzi-close, .rz-splitbutton .rz-button-text-icon-left .rz-fileupload-row .rz-paginator-element .rzi-close, .rz-fileupload-row .rz-button .rz-splitbutton .rz-button-text-icon-left .rzi-close, .rz-fileupload-row .rz-paginator-element .rz-splitbutton .rz-button-text-icon-left .rzi-close, .rz-splitbutton .rz-button-text-icon-left .rz-fileupload-row .rz-button .rzi-times, .rz-splitbutton .rz-button-text-icon-left .rz-fileupload-row .rz-paginator-element .rzi-times, .rz-fileupload-row .rz-button .rz-splitbutton .rz-button-text-icon-left .rzi-times, .rz-fileupload-row .rz-paginator-element .rz-splitbutton .rz-button-text-icon-left .rzi-times, .rz-splitbutton .rz-button-text-icon-left .rz-fileupload-row .rz-button .rz-icon-trash, .rz-splitbutton .rz-button-text-icon-left .rz-fileupload-row .rz-paginator-element .rz-icon-trash, .rz-fileupload-row .rz-button .rz-splitbutton .rz-button-text-icon-left .rz-icon-trash, .rz-fileupload-row .rz-paginator-element .rz-splitbutton .rz-button-text-icon-left .rz-icon-trash, .rz-splitbutton .rz-button-text-icon-left .rz-menuitem .rz-menuitem-icon, .rz-menuitem .rz-splitbutton .rz-button-text-icon-left .rz-menuitem-icon, .rz-splitbutton .rz-button-text-only .rzi, .rz-splitbutton .rz-button-text-only .rz-column-drag, .rz-splitbutton .rz-button-text-only .rz-datatable-loading-content .rzi-circle-o-notch, .rz-datatable-loading-content .rz-splitbutton .rz-button-text-only .rzi-circle-o-notch, .rz-splitbutton .rz-button-text-only .rz-datatable-header .rzi-plus, .rz-datatable-header .rz-splitbutton .rz-button-text-only .rzi-plus, .rz-splitbutton .rz-button-text-only .rz-sortable-column .rzi-grid-sort, .rz-sortable-column .rz-splitbutton .rz-button-text-only .rzi-grid-sort, .rz-splitbutton .rz-button-text-only .rz-datatable .rzi-chevron-circle-down, .rz-datatable .rz-splitbutton .rz-button-text-only .rzi-chevron-circle-down, .rz-splitbutton .rz-button-text-only .rz-datatable .rzi-chevron-circle-right, .rz-datatable .rz-splitbutton .rz-button-text-only .rzi-chevron-circle-right, .rz-splitbutton .rz-button-text-only .rz-fileupload-row .rz-button .rzi-close, .rz-splitbutton .rz-button-text-only .rz-fileupload-row .rz-paginator-element .rzi-close, .rz-fileupload-row .rz-button .rz-splitbutton .rz-button-text-only .rzi-close, .rz-fileupload-row .rz-paginator-element .rz-splitbutton .rz-button-text-only .rzi-close, .rz-splitbutton .rz-button-text-only .rz-fileupload-row .rz-button .rzi-times, .rz-splitbutton .rz-button-text-only .rz-fileupload-row .rz-paginator-element .rzi-times, .rz-fileupload-row .rz-button .rz-splitbutton .rz-button-text-only .rzi-times, .rz-fileupload-row .rz-paginator-element .rz-splitbutton .rz-button-text-only .rzi-times, .rz-splitbutton .rz-button-text-only .rz-fileupload-row .rz-button .rz-icon-trash, .rz-splitbutton .rz-button-text-only .rz-fileupload-row .rz-paginator-element .rz-icon-trash, .rz-fileupload-row .rz-button .rz-splitbutton .rz-button-text-only .rz-icon-trash, .rz-fileupload-row .rz-paginator-element .rz-splitbutton .rz-button-text-only .rz-icon-trash, .rz-splitbutton .rz-button-text-only .rz-menuitem .rz-menuitem-icon, .rz-menuitem .rz-splitbutton .rz-button-text-only .rz-menuitem-icon {
+    height: 0 !important;
+}
+
+.rz-dialog-content {
+    margin-bottom: 45px;
+}
+
+.rz-dialog-wrapper .rz-dialog {
+    max-height: 90%;
+}
+
+.table-view-student {
+    border: solid 1px #dfe7eb;
+}
+
+    .table-view-student .username {
+        cursor: pointer;
+        color: blue;
+    }
+
+        .table-view-student .username:hover {
+            text-decoration-line: underline;
+        }
+
+    .table-view-student th {
+        padding: .5rem !important;
+        text-transform: uppercase;
+        color: #3a474d;
+        font-weight: normal;
+        font-size: 0.75rem;
+    }
+
+    .table-view-student td {
+        color: #48606c;
+        font-size: 0.875rem;
+        text-overflow: ellipsis;
+    }
+
+.padding-right-0 {
+    padding-right: 0 !important;
+}
+
+.rz-datatable {
+    border: none !important;
+}
+
+.rz-data-grid-data {
+    border: solid 1px #dfe7eb;
+}
+
+.rz-paginator {
+    padding: 15px 0 0 0 !important;
+}
+
+.rz-data-grid {
+    display: grid !important;
+}
+
+.link-download {
+    cursor: pointer !important;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.bg-info, .bg-info > a,
+.bg-success, .bg-success > a,
+.bg-warning, .bg-warning > a,
+.bg-primary, .bg-primary > a,
+.bg-lime, .bg-lime > a,
+.bg-orange, .bg-orange > a,
+.bg-pink, .bg-pink > a,
+.bg-danger, .bg-danger > a {
+    color: #fff !important;
+}
+
+.small-box {
+    border-radius: .25rem;
+    box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+    .small-box > .inner {
+        padding: 10px;
+    }
+
+    .small-box h3, .small-box p {
+        z-index: 5;
+    }
+
+    .small-box p {
+        font-size: 1rem;
+    }
+
+    .small-box .icon {
+        color: rgba(0,0,0,.15);
+        z-index: 0;
+    }
+
+    .small-box h3 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin: 0 0 10px 0;
+        padding: 0;
+        white-space: nowrap;
+    }
+
+    .small-box > .small-box-footer {
+        background: rgba(0,0,0,.1);
+        color: rgba(255,255,255,.8);
+        display: block;
+        padding: 3px 0;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        z-index: 10;
+    }
+
+.col-lg-3 .small-box h3, .col-md-3 .small-box h3, .col-xl-3 .small-box h3 {
+    font-size: 2.2rem;
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+}
+
+.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+.bg-primary {
+    background-color: #007bff !important;
+}
+
+.bg-lime {
+    background-color: #01ff70 !important;
+}
+
+.bg-orange {
+    background-color: #fd7e14 !important;
+}
+
+.bg-pink {
+    background-color: #e83e8c !important;
+}
+
+.login-page, .register-page {
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #e9ecef;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100vh;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.login-box, .register-box {
+    width: 425px;
+}
+
+    .login-box .card, .register-box .card {
+        margin-bottom: 0;
+    }
+
+.card-primary.card-outline {
+    border-top: 3px solid #007bff;
+}
+
+.card {
+    box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+    margin-bottom: 1rem;
+}
+
+.card {
+    position: relative;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-header:first-child {
+    border-radius: calc(.25rem - 0) calc(.25rem - 0) 0 0;
+}
+
+.card-header {
+    background-color: transparent;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    padding: .75rem 1.25rem;
+    position: relative;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+    .card-header a {
+        text-decoration: none;
+    }
+
+.text-center {
+    text-align: center !important;
+}
+
+.card-body {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+}
+
+.login-box-msg, .register-box-msg {
+    margin: 0;
+    padding: 0 20px 20px;
+    text-align: center;
+}
+
+.social-auth-links {
+    margin: 10px 0;
+}
+
+.mb-3, .my-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mt-2, .my-2 {
+    margin-top: .5rem !important;
+}

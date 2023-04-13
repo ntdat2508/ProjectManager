@@ -1,0 +1,33 @@
+﻿<div class="top-row navbar navbar-dark">
+    <NavLink href="/" class="navbar-brand">
+        <span class="brand-text font-weight-light">Project Manager</span>
+    </NavLink>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass nav-menu-custom" @onclick="ToggleNavMenu">
+    <div class="login-display">
+        <LoginDisplay />
+    </div>
+    <RadzenCard>
+        <RadzenPanelMenu>
+            <RadzenPanelMenuItem Text="Trang chủ" Path="/" Icon="home" />
+            <RadzenPanelMenuItem Text="Đồ án" Path="/ProjectList/Index" Icon="account_box" />
+            <RadzenPanelMenuItem Text="Thực tập" Path="/Intern/Index" Icon="assignment" />
+            <RadzenPanelMenuItem Text="Quản lý tài khoản" Path="/User/Index" Icon="fingerprint" />
+        </RadzenPanelMenu>
+    </RadzenCard>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

@@ -1,0 +1,30 @@
+﻿@page "/"
+@inherits IndexBase
+
+@if (@isLoading)
+{
+    <TemplatedLoading />
+}
+<div class="box-form">
+    <h3>Trang chủ</h3>
+    <div class="search-form">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="small-box bg-lime">
+                    <div class="inner">
+                        <p>Đồ án</p>
+                    </div>
+                    <a href="/ProjectList/Index" class="small-box-footer">Xem</a>
+                </div>
+            </div>
+            <div class="col-sm-6 padding-left-0">
+                <div class="small-box bg-orange">
+                    <div class="inner">
+                        <p>Thực tập</p>
+                    </div>
+                    <a href="/Intern/Index" class="small-box-footer">Xem</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

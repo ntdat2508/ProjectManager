@@ -1,0 +1,101 @@
+﻿@page "/"
+@inherits IndexBase
+
+@if (@isLoading)
+{
+    <TemplatedLoading />
+}
+<div class="box-form">
+    <div class="search-form">
+        <h3 class="box-title margin-bottom-20">Quản lý đồ án</h3>
+        <div class="row">
+
+
+            <div class="col-sm-4">
+                <div class="small-box" style="background-color: #6F74ED;  color:#ffff">
+                    <div class="inner">
+                        <h3>@totalProjectList</h3>
+                        <p>Tổng số đồ án</p>
+                    </div>
+                    <a href="/ProjectList/Index" class="small-box-footer">Xem</a>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="small-box" style="background-color: #63EB81; color:#ffff">
+                    <div class="inner">
+                        <h3>@totalInternt</h3>
+                        <p>Tổng số thực tập</p>
+                    </div>
+                    <a href="/Intern/Index" class="small-box-footer">Xem</a>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="small-box" style="background-color: #4D455D; color:#ffff">
+                    <div class="inner">
+                        <h3>@totalTeacher</h3>
+                        <p>Tổng số giảng viên</p>
+                    </div>
+                    <a href="/Teacher/Index" class="small-box-footer">Xem</a>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="small-box" style="background-color: #A84448; color:#ffff">
+                    <div class="inner">
+                        <h3>@totalStudent</h3>
+                        <p>Tổng số sinh viên</p>
+                    </div>
+                    <a href="/Student/Index" class="small-box-footer">Xem</a>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="small-box" style="background-color: #0E8388; color:#ffff">
+                    <div class="inner">
+                        <h3>@totalClass</h3>
+                        <p>Tổng số lớp</p>
+                    </div>
+                    <a href="/Classs/Index" class="small-box-footer">Xem</a>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="small-box" style="background-color: #42032C; color: #ffff">
+                    <div class="inner">
+                        <h3>@totalSpecialized</h3>
+                        <p>Tổng số hội đồng</p>
+                    </div>
+                    <a href="/Specialized/Index" class="small-box-footer">Xem</a>
+                </div>
+            </div>
+
+            @*<div class="col-sm-3 padding-left-0">
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3>@totalDepartment</h3>
+                            <p>Tổng số khoa</p>
+                        </div>
+                        <a href="/Department/Index" class="small-box-footer">Xem</a>
+                    </div>
+                </div>*@
+
+
+
+            @* <div class="col-sm-3 padding-left-0">
+                    <div class="small-box bg-pink">
+                        <div class="inner">
+                            <h3>@totalFail</h3>
+                            <p>Tổng số sinh viên chưa đạt</p>
+                        </div>
+                        <a style="cursor:pointer;" @onclick="@(() => HandleClick("/ProjectList/Index", (long)StatusEnum.Fail))" class="small-box-footer">Xem</a>
+                    </div>
+                </div>*@
+
+
+        </div>
+
+
+    </div>
+</div>

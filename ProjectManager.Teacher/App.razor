@@ -1,0 +1,25 @@
+﻿<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(Program).Assembly">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        </Found>
+        <NotFound>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <div class="error-page">
+                    <h2 class="headline text-warning"> 404</h2>
+
+                    <div class="error-content">
+                        <h2><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h2>
+
+                        <p>
+                            We could not find the page you were looking for.
+                            Meanwhile, you may <a href="">return to Home</a> or try using the navigation menu.
+                        </p>
+
+                    </div>
+                    <!-- /.error-content -->
+                </div>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>

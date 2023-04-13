@@ -1,0 +1,38 @@
+﻿@inherits SpecializedModalBase
+
+@if (@isLoading)
+{
+    <TemplatedLoadingPopup />
+}
+<RadzenTemplateForm TItem="Specialized" Data="@editModel" Submit="@OnSubmit" InvalidSubmit="@OnInvalidSubmit">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Mã hội đồng" /><span class="required"></span>
+                <RadzenTextBox Name="Name" @bind-Value="@editModel.ID_Specialized" />
+                <RadzenRequiredValidator Component="Name" Text="Thông tin bắt buộc" />
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Tên hội đồng" /><span class="required"></span>
+                <RadzenTextBox Name="Name" @bind-Value="@editModel.Name" />
+                <RadzenRequiredValidator Component="Name" Text="Thông tin bắt buộc" />
+            </div>
+        </div>
+        
+    </div>
+
+
+
+    <div class="modal-footer">
+        <RadzenButton class="btn btn-danger" Click="@Cancel">
+            <RadzenIcon Icon="close" class="material-icons-custom" />Đóng
+        </RadzenButton>
+        <RadzenButton type="submit" class="btn btn-primary">
+            <RadzenIcon Icon="save" class="material-icons-custom" />Lưu
+        </RadzenButton>
+    </div>
+
+</RadzenTemplateForm>

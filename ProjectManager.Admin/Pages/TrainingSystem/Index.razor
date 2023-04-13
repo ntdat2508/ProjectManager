@@ -1,0 +1,71 @@
+﻿@page "/TrainingSystem/Index"
+@inherits IndexBase
+
+@if (@isLoading)
+{
+    <TemplatedLoading />
+}
+<div class="box-form">
+    <RadzenTemplateForm TItem="PagingRequest" Data="@request" Submit="@OnSearch">
+        <div class="search-form">
+            <div class="col-sm-4 term-box-title-left">
+                <h3 class="box-title">Quản lý hệ đào tạo</h3>
+            </div>
+            <div class="col-sm-8 term-box-title-right">
+                <RadzenButton class="btn btn-success btn-add-form float-right" Click="@(args => ShowModal(new TrainingSystemViewModel()))">
+                    <RadzenIcon Icon="add_circle_outline" class="material-icons-custom" />Thêm mới
+                </RadzenButton>
+                <RadzenButton type="submit" class="btn btn-success btn-search-form float-right margin-left-10 margin-right-10">
+                    <RadzenIcon Icon="search" class="material-icons-custom" />Tìm kiếm
+                </RadzenButton>
+                <RadzenTextBox class="float-right term-name-search-textbox" Placeholder="Tên hệ đào tạo..." @bind-Value="@request.SearchText" />
+
+            </div>
+        </div>
+    </RadzenTemplateForm>
+    <div class="clearfix"></div>
+    <RadzenDataGrid class="radzen-data-grid table-form"
+                    ColumnWidth="300px"
+                    AllowFiltering="false"
+                    AllowColumnResize="true"
+                    FilterMode="FilterMode.Advanced"
+                    AllowPaging="true"
+                    AllowSorting="false"
+                    TItem="TrainingSystemViewModel"
+                    LogicalFilterOperator="LogicalFilterOperator.Or"
+                    Count="@count"
+                    Data="@data"
+                    LoadData="@LoadData"
+                    PageSize="@pageSize"
+                    @ref="grid">
+        <Columns>
+            <RadzenDataGridColumn Width="120px" TItem="TrainingSystemViewModel" Title="Thao tác" Frozen="true" TextAlign="TextAlign.Center">
+                <Template Context="data">
+                    <RadzenButton class="btn btn-grid-edit" title="Sửa dữ liệu" Click="@(args => ShowModal(data))">
+                        <RadzenIcon Icon="create" class="material-icons-custom" />
+                    </RadzenButton>
+                    <RadzenButton class="btn btn-grid-delete" title="Xóa dữ liệu" Click="@(args => ShowModalDelete(data.Id))">
+                        <RadzenIcon Icon="delete_forever" class="material-icons-custom" />
+                    </RadzenButton>
+                </Template>
+                <FooterTemplate>
+                    Tổng số : <b> @count </b>
+                </FooterTemplate>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn Width="50px" TItem="TrainingSystemViewModel" Property="STT" Title="STT" TextAlign="TextAlign.Center" />
+            <RadzenDataGridColumn Width="100px" TItem="TrainingSystemViewModel" Property="Name" Title="Tên hệ đào tạo" />
+            <RadzenDataGridColumn Width="100px" TItem="TrainingSystemViewModel" Property="CreatedBy" Title="Người tạo" />
+            <RadzenDataGridColumn Width="100px" TItem="TrainingSystemViewModel" Property="CreatedDate" Title="Ngày tạo">
+                <Template Context="data">
+                    @(data.CreatedDate.ToString(Constants.DateFormat))
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn Width="100px" TItem="TrainingSystemViewModel" Property="ModifiedBy" Title="Người sửa" />
+            <RadzenDataGridColumn Width="100px" TItem="TrainingSystemViewModel" Property="ModifiedDate" Title="Ngày sửa">
+                <Template Context="data">
+                    @(data.ModifiedDate?.ToString(Constants.DateFormat))
+                </Template>
+            </RadzenDataGridColumn>
+        </Columns>
+    </RadzenDataGrid>
+</div>

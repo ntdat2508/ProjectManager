@@ -1,0 +1,40 @@
+﻿<div class="top-row navbar navbar-dark">
+    <NavLink href="/" class="navbar-brand">
+        <span class="brand-text font-weight-light">Quản lý đồ án</span>
+    </NavLink>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass nav-menu-custom" @onclick="ToggleNavMenu">
+    <div class="login-display">
+        <LoginDisplay />
+    </div>
+    <RadzenCard>
+        <RadzenPanelMenu>
+            <RadzenPanelMenuItem Text="Trang chủ" Path="/" Icon="home" />
+            <RadzenPanelMenuItem Text="Quản lý đồ án" Path="/ProjectList/Index" Icon="account_box" />
+            <RadzenPanelMenuItem Text="Quản lý thực tập" Path="/Intern/Index" Icon="assignment" />
+            <RadzenPanelMenuItem Text="Quản lý giảng viên" Path="/Teacher/Index" Icon="face" />
+            <RadzenPanelMenuItem Text="Quản lý sinh viên" Path="/Student/Index" Icon="supervisor_account" />
+            <RadzenPanelMenuItem Text="Quản lý lớp" Path="/Classs/Index" Icon="class" />
+            <RadzenPanelMenuItem Text="Quản lý hội đồng" Path="/Specialized/Index" Icon="wysiwyg" />
+            <RadzenPanelMenuItem Text="Quản lý tài khoản" Path="/User/Index" Icon="fingerprint" />
+
+            @*<RadzenPanelMenuItem Text="Quản lý khoa" Path="/Department/Index" Icon="toc" />           
+            <RadzenPanelMenuItem Text="Quản lý hệ đào tạo" Path="/TrainingSystem/Index" Icon="card_membership" />
+            <RadzenPanelMenuItem Text="Quản lý niên khóa" Path="/SchoolYear/Index" Icon="speaker_notes" />*@
+            
+        </RadzenPanelMenu>
+    </RadzenCard>
+</div>
+
+@code { private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    } }

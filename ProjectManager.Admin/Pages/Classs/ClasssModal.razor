@@ -1,0 +1,34 @@
+﻿@inherits ClasssModalBase
+
+@if (@isLoading)
+{
+    <TemplatedLoadingPopup />
+}
+<RadzenTemplateForm TItem="Classs" Data="@editModel" Submit="@OnSubmit" InvalidSubmit="@OnInvalidSubmit">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Mã lớp" /><span class="required"></span>
+                <RadzenTextBox Name="ClassID" @bind-Value="@editModel.ID_Classs" />
+                <RadzenRequiredValidator Component="ClassID" Text="Thông tin bắt buộc" />
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Tên lớp" /><span class="required"></span>
+                <RadzenTextBox Name="ClassName" @bind-Value="@editModel.Name" />
+                <RadzenRequiredValidator Component="ClassName" Text="Thông tin bắt buộc" />
+            </div>
+        </div>
+ 
+    </div>
+
+    <div class="modal-footer">
+        <RadzenButton class="btn btn-danger" Click="@Cancel">
+            <RadzenIcon Icon="close" class="material-icons-custom" />Đóng
+        </RadzenButton>
+        <RadzenButton type="submit" class="btn btn-primary">
+            <RadzenIcon Icon="save" class="material-icons-custom" />Lưu
+        </RadzenButton>
+    </div>
+</RadzenTemplateForm>

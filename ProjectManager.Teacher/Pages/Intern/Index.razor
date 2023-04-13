@@ -1,0 +1,88 @@
+﻿@using ProjectManager.Teacher.Data;
+@using ProjectManager.Shared.Common.Enum;
+@using ProjectManager.Shared.Constants;
+@using ProjectManager.Shared.Model.Request;
+@using ProjectManager.Shared.Model.ViewModel;
+@using Radzen;
+@using Radzen.Blazor;
+@using System.Collections.Generic;
+@using System.Threading.Tasks;
+@page "/Intern/Index"
+@inherits IndexBase
+
+
+<div class="box-form">
+    <RadzenTemplateForm TItem="InternRequest" Data="@request" Submit="@OnSearch">
+        <div class="search-form">
+            <h3 class="box-title">Quản lý thực tập</h3>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <RadzenLabel class="form-label" Text="Tên thực tập" />
+                        <RadzenTextBox Placeholder="Tên thực tập..." @bind-Value="@request.SearchText" />
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="form-group">
+                        <RadzenButton type="submit" Style="margin: 25px 15px;" class="btn btn-success btn-search-form col-lg-2 col-md col-sm">
+                            <RadzenIcon Icon="search" class="material-icons-custom" />Tìm kiếm
+                        </RadzenButton>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </RadzenTemplateForm>
+    <div class="clearfix"></div>
+    <RadzenDataGrid class="radzen-data-grid table-form"
+                    ColumnWidth="300px"
+                    AllowFiltering="false"
+                    AllowColumnResize="true"
+                    FilterMode="FilterMode.Advanced"
+                    AllowPaging="true"
+                    AllowSorting="false"
+                    TItem="InternViewModel"
+                    LogicalFilterOperator="LogicalFilterOperator.Or"
+                    Count="@count"
+                    Data="@data"
+                    LoadData="@LoadData"
+                    PageSize="@pageSize"
+                    @ref="grid">
+        <Columns>
+           
+            <RadzenDataGridColumn Width="50px" TItem="InternViewModel" Property="Id" Title="Mã thực tập">
+                <Template Context="data">
+                    @data.ID_Intern
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn Width="100px" TItem="InternViewModel" Property="Id" Title="Tên nơi thực tập">
+                <Template Context="data">
+                   @data.Name
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn Width="100px" TItem="InternViewModel" Property="Id" Title="Tên người thực tập">
+                <Template Context="data">
+                    @data.StudentName
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn Width="200px" TItem="InternViewModel" Property="Id" Title="Giảng viên phụ trách">
+                <Template Context="data">                    
+                    @data.TeacherName
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn Width="200px" TItem="InternViewModel" Property="Id" Title="Mô tả">
+                <Template Context="data">
+                    @data.LinkDownload
+                </Template>
+            </RadzenDataGridColumn>
+            <RadzenDataGridColumn Width="50px" TItem="InternViewModel" Property="Id" Title="Điểm">
+                <Template Context="data">
+                    @data.Point
+                </Template>
+            </RadzenDataGridColumn>
+        </Columns>
+    </RadzenDataGrid>
+</div>
+

@@ -1,0 +1,126 @@
+﻿@inherits ProjectListModalBase
+
+@if (@isLoading)
+{
+    <TemplatedLoadingPopup />
+}
+<RadzenTemplateForm TItem="ProjectListViewModel" Data="@projectListViewModel">
+    <div class="row">
+        <div class="col-sm-6 padding-right-0">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Mã sinh viên" />
+                <RadzenTextBox @bind-Value="@projectListViewModel.StudentCode" Disabled="true" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Tên sinh viên" />
+                <RadzenTextBox @bind-Value="@projectListViewModel.StudentName" Disabled="true" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 padding-right-0">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Khoa" />
+                <RadzenTextBox @bind-Value="@projectListViewModel.DepartmentName" Disabled="true" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Chuyên ngành" />
+                <RadzenTextBox @bind-Value="@projectListViewModel.SpecializedName" Disabled="true" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 padding-right-0">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Lớp" />
+                <RadzenTextBox @bind-Value="@projectListViewModel.ClasssName" Disabled="true" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Niên khóa" />
+                <RadzenTextBox @bind-Value="@projectListViewModel.SchoolYearName" Disabled="true" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 padding-right-0">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Mã giáo viên hướng dẫn" />
+                <RadzenTextBox @bind-Value="@projectListViewModel.TeacherCode" Disabled="true" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Tên giáo viên hướng dẫn" />
+                <RadzenTextBox @bind-Value="@projectListViewModel.TeacherName" Disabled="true" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 padding-right-0">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Mã đồ án" />
+                <RadzenNumeric TValue="long" @bind-Value="@projectListViewModel.Id" Disabled="true" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Tên đồ án" />
+                <RadzenTextBox @bind-Value="@projectListViewModel.Name" Disabled="true" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 padding-right-0">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Link download" />
+                <RadzenTextBox @bind-Value="@projectListViewModel.LinkDownload" Disabled="true" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Điểm" />
+                <RadzenTextBox MaxLength="3" @bind-Value="@projectListViewModel.Point" Disabled="true" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 padding-right-0">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Người tạo" />
+                <RadzenTextBox @bind-Value="@projectListViewModel.CreatedBy" Disabled="true" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Ngày tạo" />
+                <RadzenDatePicker class="radzen-date-picker" @bind-Value="@projectListViewModel.CreatedDate" DateFormat="@Constants.DateFormat" Disabled="true" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 padding-right-0">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Người sửa" />
+                <RadzenTextBox @bind-Value="@projectListViewModel.ModifiedBy" Disabled="true" />
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Ngày sửa" />
+                <RadzenDatePicker class="radzen-date-picker" @bind-Value="@projectListViewModel.ModifiedDate" DateFormat="@Constants.DateFormat" Disabled="true" />
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <RadzenButton class="btn btn-danger" Click="@Cancel">
+            <RadzenIcon Icon="close" class="material-icons-custom" />Đóng
+        </RadzenButton>
+    </div>
+</RadzenTemplateForm>

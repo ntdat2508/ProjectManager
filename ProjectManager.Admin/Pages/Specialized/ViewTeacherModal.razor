@@ -1,0 +1,99 @@
+﻿@inherits ViewTeacherModalBase
+
+@if (@isLoading)
+{
+    <TemplatedLoadingPopup />
+}
+<div class="row">
+    @if (isShow)
+    {
+        <div class="col-sm-6 padding-right-0">
+            <div class="form-group">
+                <table class="rz-grid-table table-view-teacher">
+                    <thead>
+                        <tr>
+                            <th width="50" style="text-align:center;">STT</th>
+                            <th width="100">Mã giảng viên</th>
+                            <th width="100">Tên giảng viên</th>
+                            <th width="100">Số điện thoại</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in listTeacher)
+                        {
+                            <tr>
+                                <td style="text-align:center;">@item.STT</td>
+                                <td class="username" @onclick="() => HandleClickUsername(item)">@item.Username</td>
+                                <td>@item.Name</td>
+                                <td>@item.PhoneNumber</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <table class="rz-grid-table table-view-teacher">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;" colspan="2">Thông tin giảng viên</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="50">Mã giảng viên</td>
+                            <td>@teacher.Username</td>
+                        </tr>
+                        <tr>
+                            <td>Họ và tên</td>
+                            <td>@teacher.Name</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày sinh</td>
+                            <td>@teacher.DateOfBirth?.ToString(Constants.DateFormat2)</td>
+                        </tr>
+                        <tr>
+                            <td>Quê quán</td>
+                            <td>@teacher.Address</td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại</td>
+                            <td>@teacher.PhoneNumber</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>@teacher.Email</td>
+                        </tr>
+                        <tr>
+                            <td>Khoa</td>
+                            <td>@teacher.DepartmentName</td>
+                        </tr>
+                        <tr>
+                            <td>Chuyên ngành</td>
+                            <td>@teacher.SpecializedName</td>
+                        </tr>
+                        <tr>
+                            <td>Hội đồng</td>
+                            <td>@teacher.SpecializedName</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-sm-12">
+            <div class="form-group">
+                <span>Dữ liệu giảng viên trống</span>
+            </div>
+        </div>
+    }
+    <div class="modal-footer">
+        <RadzenButton class="btn btn-danger" Click="@Cancel">
+            <RadzenIcon Icon="close" class="material-icons-custom" />Đóng
+        </RadzenButton>
+    </div>
+</div>

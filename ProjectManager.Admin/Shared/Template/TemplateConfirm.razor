@@ -1,0 +1,12 @@
+﻿@inherits TemplateConfirmBase
+
+<p>@message</p>
+<div class="modal-footer">
+    <RadzenButton class="btn btn-danger" Click=@Cancel>
+        <RadzenIcon Icon="close" class="material-icons-custom" />Không
+    </RadzenButton>
+
+    <RadzenButton class="btn btn-primary" Click=@OnSubmit>
+        <RadzenIcon Icon="check" class="material-icons-custom" />Đồng ý
+    </RadzenButton>
+</div>

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectManager.Authentication\ProjectManager.Authentication.csproj" />
+    <ProjectReference Include="..\ProjectManager.Repository\ProjectManager.Repository.csproj" />
+    <ProjectReference Include="..\ProjectManager.Shared\ProjectManager.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ProjectManager.Teacher\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,118 @@
+﻿@inherits StudentModalBase
+
+@if (@isLoading)
+{
+    <TemplatedLoadingPopup />
+}
+<RadzenTemplateForm TItem="Student" Data="@editModel" Submit="@OnSubmit" InvalidSubmit="@OnInvalidSubmit">
+
+
+    <div class="row">
+        @*Mã sinh viênn*@
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Mã sinh viên" /><span class="required"></span>
+                <RadzenTextBox Name="StudentID" @bind-Value="@editModel.ID_Student" />
+                <RadzenRequiredValidator Component="StudentID" Text="Thông tin bắt buộc" />
+            </div>
+        </div>
+
+        @*Tên sinh viên*@
+        <div class="col-sm-12">
+           <div class="form-group">
+                <RadzenLabel class="form-label" Text="Tên sinh viên" /><span class="required"></span>
+                <RadzenTextBox Name="StudentName" @bind-Value="@editModel.Name" />
+                <RadzenRequiredValidator Component="StudentName" Text="Thông tin bắt buộc" />
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Ngày sinh" />
+                <RadzenDatePicker Name="Date" class="radzen-date-picker" @bind-Value="@editModel.DateOfBirth" DateFormat="@Constants.DateFormat2" />
+                <RadzenRequiredValidator Component="Date" Text="Thông tin bắt buộc" />
+
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Giới tính" />
+                <RadzenDropDown class="radzen-dropdown"
+                                AllowClear="true"
+                                TValue="string"
+                                FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                FilterOperator="StringFilterOperator.Contains"
+                                AllowFiltering="true"
+                                Data="@listGender"
+                                Name="Gender"
+                                TextProperty="gender"
+                                ValueProperty="gender"
+                                Placeholder="--Tất cả--"
+                                @bind-Value="@editModel.Gender" />
+                <RadzenRequiredValidator Component="Gender" Text="Thông tin bắt buộc" />
+
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Lớp" />
+                <RadzenDropDown class="radzen-dropdown"
+                                AllowClear="true"
+                                TValue="long?"
+                                FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                                FilterOperator="StringFilterOperator.Contains"
+                                AllowFiltering="true"
+                                Data="@listClasss"
+                                Name="Class"
+                                TextProperty="Name"
+                                ValueProperty="Id"
+                                Placeholder="--Tất cả--"
+                                @bind-Value="@editModel.ClasssId" />
+                <RadzenRequiredValidator Component="Class" Text="Thông tin bắt buộc" />
+
+            </div>
+        </div>
+
+    </div>
+   
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Địa chỉ" />
+                <RadzenTextBox Name="Address" @bind-Value="@editModel.Address" />
+                <RadzenRequiredValidator Component="Address" Text="Vui lòng nhập địa chỉ" />
+
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="row">
+    
+        <div class="col-sm-6">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Email" />
+                <RadzenTextBox Name="Email" @bind-Value="@editModel.Email" />
+                <RadzenRequiredValidator Component="Email" Text="Vui lòng nhập địa chỉ email" />
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <RadzenButton class="btn btn-danger" Click="@Cancel">
+            <RadzenIcon Icon="close" class="material-icons-custom" />Đóng
+        </RadzenButton>
+        <RadzenButton type="submit" class="btn btn-primary">
+            <RadzenIcon Icon="save" class="material-icons-custom" />Lưu
+        </RadzenButton>
+    </div>
+
+
+</RadzenTemplateForm>

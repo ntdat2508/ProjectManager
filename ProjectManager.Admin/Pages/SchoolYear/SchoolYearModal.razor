@@ -1,0 +1,58 @@
+﻿@inherits SchoolYearModalBase
+
+@if (@isLoading)
+{
+    <TemplatedLoadingPopup />
+}
+<RadzenTemplateForm TItem="SchoolYear" Data="@editModel" Submit="@OnSubmit" InvalidSubmit="@OnInvalidSubmit">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <RadzenLabel class="form-label" Text="Tên niên khóa" /><span class="required">*</span>
+                <RadzenTextBox Name="Name" @bind-Value="@editModel.Name" />
+                <RadzenRequiredValidator Component="Name" Text="Thông tin bắt buộc" />
+            </div>
+        </div>
+    </div>
+
+    @if (isShow)
+    {
+        <div class="row">
+            <div class="col-sm-6 padding-right-0">
+                <div class="form-group">
+                    <RadzenLabel class="form-label" Text="Người tạo" />
+                    <RadzenTextBox @bind-Value="@editModel.CreatedBy" Disabled="true" />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <RadzenLabel class="form-label" Text="Ngày tạo" />
+                    <RadzenDatePicker class="radzen-date-picker" @bind-Value="@editModel.CreatedDate" DateFormat="@Constants.DateFormat" Disabled="true" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 padding-right-0">
+                <div class="form-group">
+                    <RadzenLabel class="form-label" Text="Người sửa" />
+                    <RadzenTextBox @bind-Value="@editModel.ModifiedBy" Disabled="true" />
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <RadzenLabel class="form-label" Text="Ngày sửa" />
+                    <RadzenDatePicker class="radzen-date-picker" @bind-Value="@editModel.ModifiedDate" DateFormat="@Constants.DateFormat" Disabled="true" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="modal-footer">
+        <RadzenButton class="btn btn-danger" Click="@Cancel">
+            <RadzenIcon Icon="close" class="material-icons-custom" />Đóng
+        </RadzenButton>
+        <RadzenButton type="submit" class="btn btn-primary">
+            <RadzenIcon Icon="save" class="material-icons-custom" />Lưu
+        </RadzenButton>
+    </div>
+</RadzenTemplateForm>

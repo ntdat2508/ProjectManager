@@ -1,0 +1,102 @@
+﻿@inherits ViewStudentModalBase
+
+@if (@isLoading)
+{
+    <TemplatedLoadingPopup />
+}
+<div class="row">
+    @if (isShow)
+    {
+        <div class="col-sm-6 padding-right-0">
+            <div class="form-group">
+                <table class="rz-grid-table table-view-student">
+                    <thead>
+                        <tr>
+                            <th width="50" style="text-align:center;">STT</th>
+                            <th width="100">Mã sinh viên</th>
+                            <th width="100">Tên sinh viên</th>
+                            <th width="100">Số điện thoại</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in listStudent)
+                        {
+                            <tr>
+                                <td style="text-align:center;">@item.STT</td>
+                                <td class="username" @onclick="() => HandleClickUsername(item)">@item.Username</td>
+                                <td>@item.Name</td>
+                                <td>@item.PhoneNumber</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <table class="rz-grid-table table-view-student">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;" colspan="2">Thông tin sinh viên</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="50">Mã sinh viên</td>
+                            <td>@student.Username</td>
+                        </tr>
+                        <tr>
+                            <td>Họ và tên</td>
+                            <td>@student.Name</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày sinh</td>
+                            <td>@student.DateOfBirth?.ToString(Constants.DateFormat2)</td>
+                        </tr>
+                        <tr>
+                            <td>Quê quán</td>
+                            <td>@student.Address</td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại</td>
+                            <td>@student.PhoneNumber</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>@student.Email</td>
+                        </tr>
+                        <tr>
+                            <td>Khoa</td>
+                            <td>@student.DepartmentName</td>
+                        </tr>
+                        <tr>
+                            <td>Chuyên ngành</td>
+                            <td>@student.SpecializedName</td>
+                        </tr>
+                        <tr>
+                            <td>Lớp</td>
+                            <td>@student.ClasssName</td>
+                        </tr>
+                        <tr>
+                            <td>Hệ đào tạo</td>
+                            <td>@student.TrainingSystemName</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-sm-12">
+            <div class="form-group">
+                <span>Dữ liệu sinh viên trống</span>
+            </div>
+        </div>
+    }
+    <div class="modal-footer">
+        <RadzenButton class="btn btn-danger" Click="@Cancel">
+            <RadzenIcon Icon="close" class="material-icons-custom" />Đóng
+        </RadzenButton>
+    </div>
+</div>

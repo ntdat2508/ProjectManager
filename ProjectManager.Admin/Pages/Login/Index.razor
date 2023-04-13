@@ -1,0 +1,48 @@
+﻿@page "/Login/Index"
+@inherits IndexBase
+
+@layout LoginLayout
+@using ProjectManager.Authentication.Model
+
+@if (@isLoading)
+{
+    <TemplatedLoading />
+}
+<div class="login-box">
+    <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+            <img  src="http://www.tlu.edu.vn/Portals/0/2014/Logo-WRU.png" />
+            <a href="/" class="h1"><b>Quản Lý Đồ Án</b></a>
+        </div>
+        <div class="card-body">
+            <p class="login-box-msg">Đăng nhập để bắt đầu phiên của bạn</p>
+
+            <RadzenTemplateForm TItem="LoginRequest" Data="@request" Submit="@OnSubmit" InvalidSubmit="@OnInvalidSubmit">
+                <div class="input-group mb-3">
+                    <RadzenTextBox Name="UserName" Style="width:auto !important;" class="form-control" Placeholder="Tên đăng nhập..." @bind-Value="@request.UserName" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <RadzenIcon Icon="perm_identity" class="material-icons-custom" />
+                        </div>
+                    </div>
+                    <RadzenRequiredValidator Style="width:100%;" Component="UserName" Text="Yêu cầu nhập tài khoản" />
+                </div>
+                <div class="input-group mb-3">
+                    <RadzenTextBox type="password" Name="Password" Style="width:auto !important;" class="form-control" Placeholder="Mật khẩu..." @bind-Value="@request.Password" />
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <RadzenIcon Icon="lock" class="material-icons-custom" />
+                        </div>
+                    </div>
+                    <RadzenRequiredValidator Style="width:100%;" Component="Password" Text="Yêu cầu nhập mật khẩu" />
+                </div>
+                <div class="row">
+                    <div class="col-8"></div>
+                    <div class="col-4">
+                        <RadzenButton type="submit" class="btn btn-primary btn-block">Đăng Nhập</RadzenButton>
+                    </div>
+                </div>
+            </RadzenTemplateForm>
+        </div>
+    </div>
+</div>
